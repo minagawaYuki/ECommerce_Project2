@@ -148,13 +148,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-<<<<<<< HEAD
                         android:layout_marginBottom="50dp"
-=======
                         android:text="Sample Text 3" />
 
                     <TextView
->>>>>>> fabe43e08150e1895a5e2dd8254540a465919b24
                         android:id="@+id/sampleText4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -217,11 +214,7 @@
 
                     <TextView
                         android:id="@+id/sampleText8"
-<<<<<<< HEAD
                         android:layout_marginBottom="50dp"
-=======
-
->>>>>>> fabe43e08150e1895a5e2dd8254540a465919b24
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
