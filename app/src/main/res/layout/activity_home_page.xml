@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/homePageLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:textAlignment="center"
@@ -214,10 +214,10 @@
 
                     <TextView
                         android:id="@+id/sampleText8"
-                        android:layout_marginBottom="50dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
+                        android:layout_marginBottom="50dp"
                         android:text="Sample Text 8" />
                 </LinearLayout>
 
@@ -228,12 +228,13 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25sp"
+        android:background="@drawable/icon_border"
         android:gravity="center"
-        android:orientation="horizontal"
-        android:background="@drawable/icon_border">
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/buttonIcon1"
@@ -244,29 +245,29 @@
             android:src="@drawable/home_icon" />
 
         <ImageButton
-            android:id="@+id/buttonIcon2"
-            android:layout_marginEnd="40dp"
+            android:id="@+id/btnCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
             android:background="@color/white"
             android:src="@drawable/cart_icon" />
 
         <ImageButton
             android:id="@+id/buttonIcon3"
-            android:layout_marginEnd="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
             android:background="@color/white"
             android:src="@drawable/notification_icon" />
 
         <ImageButton
             android:id="@+id/btnUser"
-            android:layout_marginEnd="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/user_icon"
+            android:layout_marginEnd="10dp"
+            android:background="@color/white"
             android:onClick="onClickUserIcon"
-            android:background="@color/white" />
+            android:src="@drawable/user_icon" />
 
     </LinearLayout>
 </RelativeLayout>

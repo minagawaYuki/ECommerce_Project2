@@ -15,6 +15,9 @@
             android:name=".account_page"
             android:exported="false" />
         <activity
+            android:name=".cart"
+            android:exported="false" />
+        <activity
             android:name=".user_page"
             android:exported="false" />
         <activity
