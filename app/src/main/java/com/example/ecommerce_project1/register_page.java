@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class register_page extends AppCompatActivity {
     TextView linkSignin;
     EditText eusername, eemail, epassword;
+    String username, email, password;
     Button Register;
     private FirebaseAuth mAuth;
     @Override
@@ -40,6 +41,9 @@ public class register_page extends AppCompatActivity {
         eusername = findViewById(R.id.eUsernameLogin);
         eemail = findViewById(R.id.eEmailRegister);
         epassword = findViewById(R.id.ePasswordLogin);
+        username = "default";
+        email = "default";
+        password = "default";
         Register = findViewById(R.id.btnSignup);
 
         Register.setOnClickListener(new View.OnClickListener() {
@@ -51,12 +55,15 @@ public class register_page extends AppCompatActivity {
 
                 if (eusername.getText().toString().isEmpty()) {
                     Toast.makeText(register_page.this, "Enter username", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (eemail.getText().toString().isEmpty()) {
                     Toast.makeText(register_page.this, "Enter email", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (epassword.getText().toString().length() < 6) {
                     Toast.makeText(register_page.this, "Password length too short", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(register_page.this, new OnCompleteListener<AuthResult>() {
                     @Override

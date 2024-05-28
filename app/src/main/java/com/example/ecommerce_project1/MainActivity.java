@@ -43,15 +43,13 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         edtEmail = findViewById(R.id.eUsernameLogin);
         edtPassword = findViewById(R.id.ePasswordLogin);
-        userEmail = "default";
-        password = "default";
         linkRegister = findViewById(R.id.txtSignin);
         btnSignin = findViewById(R.id.btnSignin);
         linkRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(
-                        MainActivity.this, home_page.class
+                        MainActivity.this, register_page.class
                 );
                 startActivity(intent1);
             }
@@ -61,13 +59,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
             if (edtEmail.getText().toString().isEmpty()) {
                 Toast.makeText(MainActivity.this, "Enter email", Toast.LENGTH_SHORT).show();
-            } else {
-                userEmail = edtEmail.getText().toString();
+                return;
             }
-            if (edtPassword.getText().toString().length() > 5) {
-                password = edtPassword.getText().toString();
-            } else {
+            if (edtPassword.getText().toString().isEmpty()) {
+                Toast.makeText(MainActivity.this, "Enter password", Toast.LENGTH_SHORT).show();
+                return;
             }
+            userEmail = edtEmail.getText().toString();
+            password = edtPassword.getText().toString();
             mAuth.signInWithEmailAndPassword(userEmail, password).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
