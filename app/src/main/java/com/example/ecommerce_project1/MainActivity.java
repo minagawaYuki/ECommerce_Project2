@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
     String userEmail;
     String password;
     Button btnSignin;
-    private FirebaseAuth mAuth;
+    private DBHandler dbHandler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        mAuth = FirebaseAuth.getInstance();
+        dbHandler = new DBHandler(MainActivity.this);
         edtEmail = findViewById(R.id.eUsernameLogin);
         edtPassword = findViewById(R.id.ePasswordLogin);
         linkRegister = findViewById(R.id.txtSignin);
@@ -57,29 +58,27 @@ public class MainActivity extends AppCompatActivity {
         btnSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            if (edtEmail.getText().toString().isEmpty()) {
-                Toast.makeText(MainActivity.this, "Enter email", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if (edtPassword.getText().toString().isEmpty()) {
-                Toast.makeText(MainActivity.this, "Enter password", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            userEmail = edtEmail.getText().toString();
-            password = edtPassword.getText().toString();
-            mAuth.signInWithEmailAndPassword(userEmail, password).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()) {
-                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainActivity.this, home_page.class));
-                    }   else {
-                        Log.e("Firebase Auth", "Sign-in failed", task.getException()); //
-                        Toast.makeText(MainActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
-                    }
+                if (edtEmail.getText().toString().isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Enter email", Toast.LENGTH_SHORT).show();
+                    return;
                 }
-            });
+                if (edtPassword.getText().toString().isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Enter password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                userEmail = edtEmail.getText().toString();
+                password = edtPassword.getText().toString();
+                boolean isValid = dbHandler.readUser(userEmail, password);
+                if(isValid) {
+                    Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
+                    Intent intent1 = new Intent(
+                            MainActivity.this, home_page.class
+                    );
+                    startActivity(intent1);
+                } else {
+                    Toast.makeText(MainActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                }
             }
-            });
+        });
     }
 }

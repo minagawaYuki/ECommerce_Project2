@@ -2,7 +2,7 @@
     // Login Page
     <string name="app_name">ECommerce_Project</string>
     <string name="lblLogin">Login</string>
-    <string name="lblUsername">Email</string>
+    <string name="lblUsername">Username</string>
     <string name="lblPassword">Password</string>
     <string name="lblAccount">Don\'t have an account?</string>
     <string name="lblRegister">Register</string>

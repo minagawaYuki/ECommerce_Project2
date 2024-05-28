@@ -26,7 +26,7 @@ public class register_page extends AppCompatActivity {
     EditText eusername, eemail, epassword;
     String username, email, password;
     Button Register;
-    private FirebaseAuth mAuth;
+    private DBHandler dbHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +37,7 @@ public class register_page extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        mAuth = FirebaseAuth.getInstance();
+        dbHandler = new DBHandler(register_page.this);
         eusername = findViewById(R.id.eUsernameLogin);
         eemail = findViewById(R.id.eEmailRegister);
         epassword = findViewById(R.id.ePasswordLogin);
@@ -49,9 +49,6 @@ public class register_page extends AppCompatActivity {
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = eusername.getText().toString();
-                String email = eemail.getText().toString();
-                String password = epassword.getText().toString();
 
                 if (eusername.getText().toString().isEmpty()) {
                     Toast.makeText(register_page.this, "Enter username", Toast.LENGTH_SHORT).show();
@@ -65,18 +62,14 @@ public class register_page extends AppCompatActivity {
                     Toast.makeText(register_page.this, "Password length too short", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(register_page.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(register_page.this, "Registered Successfully, enter correct format", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(register_page.this, MainActivity.class));
-                        } else {
-                            Log.e("Firebase Auth", "Sign-in failed", task.getException()); //
-                            Toast.makeText(register_page.this, "Failed to register", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                username    = eusername.getText().toString();
+                email = eemail.getText().toString();
+                password = epassword.getText().toString();
+                dbHandler.addNewUser(username, email, password);
+                Toast.makeText(register_page.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                eusername.setText("");
+                eemail.setText("");
+                epassword.setText("");
             }
         });
 
