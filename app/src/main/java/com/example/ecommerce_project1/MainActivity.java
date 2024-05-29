@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private DBHandler dbHandler;
     public static User user;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(
-                        MainActivity.this, register_page.class
+                        MainActivity.this, home_page.class
                 );
                 startActivity(intent1);
             }
