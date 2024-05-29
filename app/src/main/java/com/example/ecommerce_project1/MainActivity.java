@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private DBHandler dbHandler;
     public static User user;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     user = new User(isValid, userEmail, password);
                     Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
                     Intent intent1 = new Intent(
-                            MainActivity.this, cartview.class
+                            MainActivity.this, home_page.class
                     );
                     startActivity(intent1);
                 } else {
