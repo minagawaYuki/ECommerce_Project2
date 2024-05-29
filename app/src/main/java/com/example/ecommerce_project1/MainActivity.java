@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     user = new User(isValid, userEmail, password);
                     Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
                     Intent intent1 = new Intent(
-                            MainActivity.this, home_page.class
+                            MainActivity.this, cartview.class
                     );
                     startActivity(intent1);
                 } else {

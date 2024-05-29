@@ -75,20 +75,20 @@ public class order_history extends AppCompatActivity {
             case 3:
                 return R.drawable.laptop3;
             case 4:
-                return R.drawable.laptop2;
+                return R.drawable.phone11;
             // Add more cases for different product names
             case 5:
-                return R.drawable.laptop1;
+                return R.drawable.phone22;
             case 6:
-                return R.drawable.laptop2;
+                return R.drawable.phone3;
             // Add more cases for different product names
             case 7:
-                return R.drawable.laptop1;
+                return R.drawable.gpu11;
             case 8:
-                return R.drawable.laptop2;
+                return R.drawable.gpu22;
             // Add more cases for different product names
             default:
-                return R.drawable.laptop3; // Default image if no match found
+                return R.drawable.gpu33; // Default image if no match found
         }
     }
 }
