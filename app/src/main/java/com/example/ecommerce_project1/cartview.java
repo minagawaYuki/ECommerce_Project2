@@ -27,6 +27,7 @@ public class cartview extends AppCompatActivity {
     private ArrayList<String> itemImage;
     private ArrayList<String> itemDescription;
     private ArrayList<Integer> itemImages;
+    private ArrayList<Integer> itemIDs;
     CustomAdapter customAdapter;
     Button btnOrder, btnCart;
 
@@ -69,8 +70,9 @@ public class cartview extends AppCompatActivity {
         itemImage = new ArrayList<>();
         itemImages = new ArrayList<>();
         itemDescription = new ArrayList<>();
+        itemIDs = new ArrayList<>();
         storeItemInArrays();
-        customAdapter = new CustomAdapter(this, itemName, itemPrice, itemDescription, itemImages, dbHandler);
+        customAdapter = new CustomAdapter(this, itemName, itemPrice, itemDescription, itemImages, itemIDs, dbHandler);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -85,6 +87,7 @@ public class cartview extends AppCompatActivity {
                 itemName.add(cursor.getString(1));
                 itemPrice.add(cursor.getInt(2));
                 itemImages.add(getImageResourceId(cursor.getInt(0)));
+                itemIDs.add(cursor.getInt(0));
                 System.out.println("Item name");
             }
         }

@@ -23,13 +23,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     private ArrayList<Integer> itemPrice;
     private ArrayList<String> itemDescription;
     private ArrayList<Integer> itemImages;
+    private ArrayList<Integer> itemIDs;
     private DBHandler dbHandler;
 
-    public CustomAdapter(Context context, ArrayList<String> itemName, ArrayList<Integer> itemPrice, ArrayList<String> itemDescription, ArrayList<Integer> itemImages, DBHandler dbHandler) {
+    public CustomAdapter(Context context, ArrayList<String> itemName, ArrayList<Integer> itemPrice, ArrayList<String> itemDescription, ArrayList<Integer> itemImages, ArrayList<Integer>itemIDs, DBHandler dbHandler) {
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.itemDescription = itemDescription;
         this.itemImages = itemImages;
+        this.itemIDs = itemIDs;
         this.context = context;
         this.dbHandler = dbHandler;
     }
@@ -59,7 +61,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             public void onClick(View v) {
                 String name = itemName.get(pos);
                 int price = itemPrice.get(pos);
-                int itemid = itemImages.get(pos);
+                int itemid = itemIDs.get(pos);
                 dbHandler.addToCart(MainActivity.user.getId(), itemid, name, price);
                 Toast.makeText(context, "Added to cart item" + itemid, Toast.LENGTH_SHORT).show();
             }

@@ -39,7 +39,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.ViewHolder holder, int position) {
-        holder.cartImage.setBackgroundResource(itemImages.get(position));
+        holder.cartImage.setImageResource(itemImages.get(position));
         holder.cartItemName.setText(String.valueOf(itemName.get(position)));
         holder.cartItemPrice.setText(String.valueOf(itemPrice.get(position)));
     }
@@ -50,7 +50,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView cartImage;
+        ImageButton cartImage;
         TextView cartItemName, cartItemPrice;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

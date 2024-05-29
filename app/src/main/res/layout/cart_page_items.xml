@@ -18,7 +18,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/cItemImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

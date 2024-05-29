@@ -24,6 +24,7 @@ public class cart_page extends AppCompatActivity {
     private ArrayList<String> itemImage;
     private ArrayList<String> itemDescription;
     private ArrayList<Integer> itemImages;
+    private ArrayList<Integer> itemIDs;
     CartAdapter customAdapter;
 
     @Override
@@ -60,7 +61,6 @@ public class cart_page extends AppCompatActivity {
             while (cursor.moveToNext()) {
                 itemName.add(cursor.getString(2));
                 itemPrice.add(cursor.getInt(3));
-                itemDescription.add(cursor.getString(1));
                 itemImages.add(getImageResourceId(cursor.getInt(1)));
                 System.out.println("Item name");
             }
