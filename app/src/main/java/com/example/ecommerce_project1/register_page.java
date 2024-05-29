@@ -26,17 +26,24 @@ public class register_page extends AppCompatActivity {
     EditText eusername, eemail, epassword;
     String username, email, password;
     Button Register;
+
+    EditText Username;
     private DBHandler dbHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register_page);
+
+        Username = findViewById(R.id.eUsernameLogin);
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.btnSignup), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         dbHandler = new DBHandler(register_page.this);
         eusername = findViewById(R.id.eUsernameLogin);
         eemail = findViewById(R.id.eEmailRegister);
@@ -80,9 +87,10 @@ public class register_page extends AppCompatActivity {
         linkSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(
-                        register_page.this, MainActivity.class
-                );
+                String username = Username.getText().toString();
+                Intent intent = new Intent(register_page.this, cartview.class);
+                intent.putExtra("user_name", username);
+                Intent intent1 = new Intent(register_page.this, MainActivity.class);
                 startActivity(intent1);
             }
         });

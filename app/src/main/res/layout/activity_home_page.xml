@@ -177,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="23dp"
-                android:text="Recommended For You"
+                android:text="Below this will be the recycler view items"
                 android:textColor="#000"
                 android:textSize="18sp" />
 

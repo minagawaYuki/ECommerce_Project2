@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blackish"
     tools:context=".register_page">
 
     <LinearLayout
@@ -28,7 +29,7 @@
             android:fontFamily="sans-serif-black"
             android:text="@string/lblRegister"
             android:textAlignment="center"
-            android:textColor="#221F1F"
+            android:textColor="@color/whiteish"
             android:textSize="35sp" />
 
         <LinearLayout
@@ -45,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3sp"
                 android:text="@string/lblUser"
-                android:textColor="#000000"
+                android:textColor="@color/whiteish"
                 android:textStyle="bold" />
 
             <EditText
@@ -55,6 +56,8 @@
                 android:ems="10"
                 android:hint="@string/lblUser"
                 android:inputType="text"
+                android:textColor="@color/whiteish"
+                android:textColorHint="@color/whiteish"
                 android:text="" />
 
             <TextView
@@ -64,7 +67,7 @@
                 android:layout_marginStart="3sp"
                 android:layout_marginTop="15sp"
                 android:text="@string/lblEmail"
-                android:textColor="#000000"
+                android:textColor="@color/whiteish"
                 android:textStyle="bold" />
 
             <EditText
@@ -73,6 +76,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/lblEmail"
+                android:textColor="@color/whiteish"
+                android:textColorHint="@color/whiteish"
                 android:inputType="text" />
 
             <TextView
@@ -82,7 +87,7 @@
                 android:layout_marginStart="3sp"
                 android:layout_marginTop="15sp"
                 android:text="@string/lblPassword"
-                android:textColor="#000000"
+                android:textColor="@color/whiteish"
                 android:textStyle="bold" />
 
             <EditText
@@ -92,6 +97,8 @@
                 android:ems="10"
                 android:hint="@string/lblPassword"
                 android:inputType="text"
+                android:textColor="@color/whiteish"
+                android:textColorHint="@color/whiteish"
                 android:text="" />
 
             <LinearLayout
@@ -106,11 +113,10 @@
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_border"
-                    android:backgroundTint="#020202"
                     android:text="@string/lblRegister"
                     android:textAlignment="center"
                     android:textSize="19sp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/whiteish"
                     android:textStyle="bold"
                     app:backgroundTint="@null" />
             </LinearLayout>
@@ -129,6 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
+                android:textColor="@color/whiteish"
                 android:text="@string/lblHaveAccount" />
 
             <TextView
@@ -138,7 +145,7 @@
                 android:layout_marginStart="5sp"
                 android:layout_weight="0"
                 android:text="@string/linkSignin"
-                android:textColor="#000000"
+                android:textColor="@color/whiteish"
                 android:textStyle="bold" />
         </LinearLayout>
 

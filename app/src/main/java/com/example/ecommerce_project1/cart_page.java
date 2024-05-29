@@ -38,6 +38,7 @@ public class cart_page extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         dbHandler = new DBHandler(this);;
         recyclerView = findViewById(R.id.cartRecycleView);
         itemName = new ArrayList<>();
@@ -72,24 +73,20 @@ public class cart_page extends AppCompatActivity {
                 return R.drawable.laptop1;
             case 2:
                 return R.drawable.laptop2;
-            // Add more cases for different product names
             case 3:
                 return R.drawable.laptop3;
             case 4:
                 return R.drawable.phone11;
-            // Add more cases for different product names
             case 5:
                 return R.drawable.phone22;
             case 6:
                 return R.drawable.phone3;
-            // Add more cases for different product names
             case 7:
                 return R.drawable.gpu11;
             case 8:
                 return R.drawable.gpu22;
-            // Add more cases for different product names
             default:
-                return R.drawable.gpu33; // Default image if no match found
+                return R.drawable.gpu33;
         }
     }
 }

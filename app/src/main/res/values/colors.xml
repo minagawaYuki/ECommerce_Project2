@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#FFCC00</color>
     <color name="red">#ff1a1a</color>
+<!--    Theme-->
+    <color name="blackish">#151515</color>
+    <color name="redish">#A91D3A</color>
+    <color name="pinkish">#C73659</color>
+    <color name="whiteish">#EEEEEE</color>
 </resources>
