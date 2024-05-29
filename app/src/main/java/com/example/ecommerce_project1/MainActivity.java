@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     String password;
     Button btnSignin;
     private DBHandler dbHandler;
+    public static User user;
 
 
     @Override
@@ -68,11 +69,12 @@ public class MainActivity extends AppCompatActivity {
                 }
                 userEmail = edtEmail.getText().toString();
                 password = edtPassword.getText().toString();
-                boolean isValid = dbHandler.readUser(userEmail, password);
-                if(isValid) {
+                int isValid = dbHandler.readUser(userEmail, password);
+                if(isValid != -1) {
+                    user = new User(isValid, userEmail, password);
                     Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
                     Intent intent1 = new Intent(
-                            MainActivity.this, home_page.class
+                            MainActivity.this, cartview.class
                     );
                     startActivity(intent1);
                 } else {
