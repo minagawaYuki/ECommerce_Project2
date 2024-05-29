@@ -196,7 +196,7 @@ public class DBHandler extends SQLiteOpenHelper {
         // at last we are closing our
         // database after adding database.
     }
-    public void addToOrders(int userid, String productName, int price) {
+    public void addToOrders(int userid, int itemid, String productName, int price) {
 
         // on below line we are creating a variable for
         // our sqlite database and calling writable method
@@ -211,7 +211,7 @@ public class DBHandler extends SQLiteOpenHelper {
         // along with its key and value pair.
         values.put(USER_ID, userid);
         values.put(PRODUCT_NAME, productName);
-        values.put(PRODUCT_ID, productName);
+        values.put(PRODUCT_ID, itemid);
         values.put(PRODUCT_PRICE, price);
         values.put(QUANTITY, "1");
 
@@ -288,6 +288,16 @@ public class DBHandler extends SQLiteOpenHelper {
     public Cursor getCartItems() {
         Cursor cursor = null;
         String query = "SELECT " + ID_COL + "," + PRODUCT_ID + ","+ PRODUCT_NAME + "," + PRODUCT_PRICE +" FROM " + TABLE_CART
+                + " WHERE " + USER_ID + " = " + MainActivity.user.getId();
+        SQLiteDatabase db = this.getReadableDatabase();
+        if(db != null) {
+            cursor = db.rawQuery(query, null);
+        }
+        return cursor;
+    }
+    public Cursor getOrderItems() {
+        Cursor cursor = null;
+        String query = "SELECT " + ID_COL + "," + PRODUCT_ID + ","+ PRODUCT_NAME + "," + PRODUCT_PRICE +" FROM " + TABLE_ORDERS
                 + " WHERE " + USER_ID + " = " + MainActivity.user.getId();
         SQLiteDatabase db = this.getReadableDatabase();
         if(db != null) {

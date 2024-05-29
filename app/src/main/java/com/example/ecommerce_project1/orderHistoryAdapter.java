@@ -33,16 +33,15 @@ public class orderHistoryAdapter extends RecyclerView.Adapter<orderHistoryAdapte
     @Override
     public orderHistoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.itemrow, parent, false);
+        View view = inflater.inflate(R.layout.cart_page_items, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.itemNameText.setText(String.valueOf(itemName.get(position)));
-        holder.itemPriceText.setText(String.valueOf(itemPrice.get(position)));
-        holder.itemDescriptionText.setText(String.valueOf(itemDescription.get(position)));
-        holder.itemImage.setImageResource(itemImages.get(position));
+        holder.cartImage.setImageResource(itemImages.get(position));
+        holder.cartItemName.setText(String.valueOf(itemName.get(position)));
+        holder.cartItemPrice.setText(String.valueOf(itemPrice.get(position)));
     }
 
     @Override
@@ -51,14 +50,13 @@ public class orderHistoryAdapter extends RecyclerView.Adapter<orderHistoryAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView itemNameText, itemPriceText, itemDescriptionText;
-        ImageButton itemImage;
+        ImageButton cartImage;
+        TextView cartItemName, cartItemPrice;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            itemNameText = itemView.findViewById(R.id.itemName);
-            itemPriceText = itemView.findViewById(R.id.itemPrice);
-            itemDescriptionText = itemView.findViewById(R.id.itemDescription);
-            itemImage = itemView.findViewById(R.id.itemImage);
+            cartImage = itemView.findViewById(R.id.cItemImage);
+            cartItemName = itemView.findViewById(R.id.cItemName);
+            cartItemPrice = itemView.findViewById(R.id.cItemPrice);
         }
     }
 }

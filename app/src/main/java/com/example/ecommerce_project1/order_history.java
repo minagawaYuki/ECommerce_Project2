@@ -52,16 +52,16 @@ public class order_history extends AppCompatActivity {
 
     }
     public void storeItemInArrays() {
-        Cursor cursor = dbHandler.getAllItems();
+        Cursor cursor = dbHandler.getOrderItems();
         if (cursor.getCount() == 0) {
             Toast.makeText(this, "No items in cart", Toast.LENGTH_SHORT).show();
             return;
         } else {
             while (cursor.moveToNext()) {
-                itemName.add(cursor.getString(1));
-                itemPrice.add(cursor.getInt(2));
-                itemDescription.add(cursor.getString(3));
-                itemImages.add(getImageResourceId(cursor.getInt(2)));
+                itemName.add(cursor.getString(2));
+                itemPrice.add(cursor.getInt(3));
+                itemImages.add(getImageResourceId(cursor.getInt(1)));
+                System.out.println("Item name");
             }
         }
     }

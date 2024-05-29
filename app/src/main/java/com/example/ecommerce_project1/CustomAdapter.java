@@ -53,7 +53,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         holder.btnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String name = itemName.get(pos);
+                int price = itemPrice.get(pos);
+                int itemid = itemIDs.get(pos);
+                dbHandler.addToOrders(MainActivity.user.getId(), itemid, name, price);
+                Toast.makeText(context, "Added to cart item" + itemid, Toast.LENGTH_SHORT).show();
             }
         });
         holder.btnAddCart.setOnClickListener(new View.OnClickListener() {
