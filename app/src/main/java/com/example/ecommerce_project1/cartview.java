@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -30,6 +31,7 @@ public class cartview extends AppCompatActivity {
     private ArrayList<Integer> itemIDs;
     CustomAdapter customAdapter;
     Button btnOrder, btnCart;
+    TextView username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,15 @@ public class cartview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_cartview);
+
+        username = findViewById(R.id.tfUsername);
+
+        Intent intent = getIntent();
+
+        String userName = intent.getStringExtra("user_name");
+
+        username.setText(userName);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -62,6 +73,7 @@ public class cartview extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
         dbHandler = new DBHandler(this);;
         recyclerView = findViewById(R.id.recycleView);
         itemName = new ArrayList<>();
@@ -94,28 +106,15 @@ public class cartview extends AppCompatActivity {
     }
     private int getImageResourceId(int id) {
         switch (id) {
-            case 1:
-                return R.drawable.laptop1;
-            case 2:
-                return R.drawable.laptop2;
-            // Add more cases for different product names
-            case 3:
-                return R.drawable.laptop3;
-            case 4:
-                return R.drawable.phone11;
-            // Add more cases for different product names
-            case 5:
-                return R.drawable.phone22;
-            case 6:
-                return R.drawable.phone3;
-            // Add more cases for different product names
-            case 7:
-                return R.drawable.gpu11;
-            case 8:
-                return R.drawable.gpu22;
-            // Add more cases for different product names
-            default:
-                return R.drawable.gpu33; // Default image if no match found
+            case 1: return R.drawable.laptop1;
+            case 2: return R.drawable.laptop2;
+            case 3: return R.drawable.laptop3;
+            case 4: return R.drawable.phone11;
+            case 5: return R.drawable.phone22;
+            case 6: return R.drawable.phone3;
+            case 7: return R.drawable.gpu11;
+            case 8: return R.drawable.gpu22;
+            default: return R.drawable.gpu33;
         }
     }
 }
