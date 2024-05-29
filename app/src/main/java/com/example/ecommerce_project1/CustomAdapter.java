@@ -1,17 +1,14 @@
 package com.example.ecommerce_project1;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -57,7 +54,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                 int price = itemPrice.get(pos);
                 int itemid = itemIDs.get(pos);
                 dbHandler.addToOrders(MainActivity.user.getId(), itemid, name, price);
-                Toast.makeText(context, "Added to cart item" + itemid, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Bought item" + itemid, Toast.LENGTH_SHORT).show();
             }
         });
         holder.btnAddCart.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +84,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             itemPriceText = itemView.findViewById(R.id.itemPrice);
             itemDescriptionText = itemView.findViewById(R.id.itemDescription);
             itemImage = itemView.findViewById(R.id.itemImage);
-            btnBuy = itemView.findViewById(R.id.btnBuy);
+            btnBuy = itemView.findViewById(R.id.btnCartBuy);
             btnAddCart = itemView.findViewById(R.id.btnAddCart);
         }
     }

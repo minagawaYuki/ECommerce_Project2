@@ -61,7 +61,7 @@
         android:layout_marginTop="8dp">
 
         <Button
-            android:id="@+id/btnBuy"
+            android:id="@+id/btnCartBuy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="BUY"

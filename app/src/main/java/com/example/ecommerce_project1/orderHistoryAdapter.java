@@ -33,7 +33,7 @@ public class orderHistoryAdapter extends RecyclerView.Adapter<orderHistoryAdapte
     @Override
     public orderHistoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.cart_page_items, parent, false);
+        View view = inflater.inflate(R.layout.order_history_items, parent, false);
         return new ViewHolder(view);
     }
 
@@ -54,9 +54,9 @@ public class orderHistoryAdapter extends RecyclerView.Adapter<orderHistoryAdapte
         TextView cartItemName, cartItemPrice;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            cartImage = itemView.findViewById(R.id.cItemImage);
-            cartItemName = itemView.findViewById(R.id.cItemName);
-            cartItemPrice = itemView.findViewById(R.id.cItemPrice);
+            cartImage = itemView.findViewById(R.id.orderItemImage);
+            cartItemName = itemView.findViewById(R.id.orderItemName);
+            cartItemPrice = itemView.findViewById(R.id.orderItemPrice);
         }
     }
 }

@@ -47,8 +47,9 @@ public class cart_page extends AppCompatActivity {
         itemImage = new ArrayList<>();
         itemImages = new ArrayList<>();
         itemDescription = new ArrayList<>();
+        itemIDs = new ArrayList<>();
         storeItemInArrays();
-        customAdapter = new CartAdapter(this, itemName, itemPrice, itemDescription, itemImages);
+        customAdapter = new CartAdapter(this, itemName, itemPrice, itemDescription, itemImages, itemIDs, dbHandler);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -63,6 +64,7 @@ public class cart_page extends AppCompatActivity {
                 itemName.add(cursor.getString(2));
                 itemPrice.add(cursor.getInt(3));
                 itemImages.add(getImageResourceId(cursor.getInt(1)));
+                itemIDs.add(cursor.getInt(1));
                 System.out.println("Item name");
             }
         }

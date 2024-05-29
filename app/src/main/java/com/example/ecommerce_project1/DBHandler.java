@@ -268,6 +268,11 @@ public class DBHandler extends SQLiteOpenHelper {
             Log.d("DBHandler", "Order created successfully");
         }
     }
+    public void deleteOrder(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "DELETE FROM " + TABLE_CART + " WHERE " + PRODUCT_ID + " = " + id;
+        db.execSQL(query);
+    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
