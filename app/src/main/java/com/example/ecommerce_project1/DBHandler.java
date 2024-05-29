@@ -310,6 +310,22 @@ public class DBHandler extends SQLiteOpenHelper {
         }
         return cursor;
     }
+    public void updateUser(int id, String newEmail) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(NAME_COL, newEmail);
+
+        // Define the WHERE clause to specify which record(s) to update
+        String selection = ID_COL + " = ?";
+        String[] selectionArgs = { String.valueOf(id) };
+
+        // Perform the update
+        int count = db.update(TABLE_NAME, values, selection, selectionArgs);
+
+        // Optionally, log the number of rows affected
+        Log.d("DBHandler", "Number of rows updated: " + count);
+    }
     public List<String> getCartDetailsWithProductNames() {
         List<String> cartDetails = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();

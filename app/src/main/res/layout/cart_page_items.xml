@@ -25,11 +25,11 @@
 
                 <ImageButton
                     android:id="@+id/cItemImage"
-                    android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginStart="30dp"
-                    android:layout_gravity="left"
+                    android:layout_marginTop="20dp"
                     app:srcCompat="@drawable/laptop1" />
 
 
@@ -57,16 +57,17 @@
                         android:id="@+id/cItemPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView"
+                        android:fontFamily="sans-serif-medium"
                         android:paddingLeft="25dp"
-                        android:textSize="18sp"
+                        android:text="TextView"
                         android:textColor="#ffffff"
-                        android:fontFamily="sans-serif-medium"/>
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:gravity="right"
                     android:orientation="horizontal"
                     android:paddingStart="10dp"
