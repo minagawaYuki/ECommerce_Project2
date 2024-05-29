@@ -156,7 +156,6 @@ public class DBHandler extends SQLiteOpenHelper {
         values.put(USER_ID, id);
         values.put(PRODUCT_ID, itemid);
         values.put(PRODUCT_NAME, productName);
-        values.put(PRODUCT_ID, productName);
         values.put(PRODUCT_PRICE, price);
         values.put(QUANTITY, "1");
 
